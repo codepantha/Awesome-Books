@@ -1,6 +1,10 @@
 // STEP 1: create the html skeleton of the website - completed
 
 // STEP 2: Create an array of objects containing the collection of books
+let books = [
+  { book: "The keys to success", author: "codepanther" },
+  { book: "The girl with the dragon tatoo", author: "the unknown author" },
+];
 
 // STEP 3: Create a function that adds new books to the array in step 2
 // 3.1: Store individual books in localstorage
