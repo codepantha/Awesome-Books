@@ -6,9 +6,13 @@ let books = [
   { title: "The girl with the dragon tatoo", author: "the unknown author" },
 ];
 
+const titleInput = document.querySelector(".title-input");
+const authorInput = document.querySelector(".author-input");
+const addBookBtn = document.querySelector("#addBtn");
+
 // STEP 3: Create a function that adds new books to the array in step 2
 
-const addBookBtn = document.querySelector("#addBtn");
+
 
 addBookBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -16,8 +20,8 @@ addBookBtn.addEventListener("click", (e) => {
 });
 
 const addBooks = () => {
-  const title = document.querySelector(".title-input").value;
-  const author = document.querySelector(".author-input").value;
+  let title = titleInput.value;
+  let author = authorInput.value;
 
   const newBook = {
     title,
@@ -25,6 +29,10 @@ const addBooks = () => {
   };
 
   books.push(newBook);
+
+  localStorage.setItem('books', JSON.stringify(books));
+
+  titleInput.value = authorInput.value = '';
 };
 
 // const booksElement = document.querySelector(".books");
