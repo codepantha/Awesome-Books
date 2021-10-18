@@ -1,25 +1,21 @@
-const booksElement = document.querySelector(".books");
-const titleInput = document.querySelector(".title-input");
-const authorInput = document.querySelector(".author-input");
-const addBookBtn = document.querySelector("#addBtn");
+/* eslint-disable no-unused-vars */
+
+const booksElement = document.querySelector('.books');
+const titleInput = document.querySelector('.title-input');
+const authorInput = document.querySelector('.author-input');
+const addBookBtn = document.querySelector('#addBtn');
 
 let books = [];
 
-addBookBtn.addEventListener("click", () => {
-  addBooks();
-});
-
 const saveToLocalStorage = (books) => {
-  localStorage.setItem("books", JSON.stringify(books));
+  localStorage.setItem('books', JSON.stringify(books));
 };
 
-const getExistingBooks = () => {
-  return JSON.parse(localStorage.getItem("books"));
-};
+const getExistingBooks = () => JSON.parse(localStorage.getItem('books'));
 
 const addBooks = () => {
-  let title = titleInput.value;
-  let author = authorInput.value;
+  const title = titleInput.value;
+  const author = authorInput.value;
 
   const newBook = { title, author };
 
@@ -34,8 +30,13 @@ const addBooks = () => {
   saveToLocalStorage(books);
   books = [];
 
-  titleInput.value = authorInput.value = "";
+  titleInput.value = '';
+  authorInput.value = '';
 };
+
+addBookBtn.addEventListener('click', () => {
+  addBooks();
+});
 
 const displayBooks = () => {
   if (getExistingBooks()) {
@@ -48,17 +49,17 @@ const displayBooks = () => {
       <hr class="bottom-border" />
       </div>`;
 
-      booksElement.insertAdjacentHTML("afterbegin", textHtml);
+      booksElement.insertAdjacentHTML('afterbegin', textHtml);
     });
   }
 };
 
 displayBooks();
 
-const removeBook = (index) => {
+function removeBook(index) {
   const filterBooks = getExistingBooks().filter(
-    (existingBook, i) => index !== i
+    (existingBook, i) => index !== i,
   );
   saveToLocalStorage(filterBooks);
-  location.reload();
-};
+  window.location.reload();
+}
