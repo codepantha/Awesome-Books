@@ -2,11 +2,45 @@
 
 // STEP 2: Create an array of objects containing the collection of books
 let books = [
-  { book: "The keys to success", author: "codepanther" },
-  { book: "The girl with the dragon tatoo", author: "the unknown author" },
+  { title: "The keys to success", author: "codepanther" },
+  { title: "The girl with the dragon tatoo", author: "the unknown author" },
 ];
 
 // STEP 3: Create a function that adds new books to the array in step 2
+
+const addBookBtn = document.querySelector("#addBtn");
+
+addBookBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addBooks();
+});
+
+const addBooks = () => {
+  const title = document.querySelector(".title-input").value;
+  const author = document.querySelector(".author-input").value;
+
+  const newBook = {
+    title,
+    author,
+  };
+
+  books.push(newBook);
+};
+
+// const booksElement = document.querySelector(".books");
+
+// const addBook = (title, author) => {
+//   books.forEach((book) => {
+//     booksElement.innerHTML = `
+//     <div class="book">
+//     <p class="title">${book.title}</p>
+//     <p class="author">${book.author}</p>
+//     <button id="remove-btn">Remove</button>
+//     <hr class="bottom-border" />
+//   </div>`;
+//   });
+// };
+
 // 3.1: Store individual books in localstorage
 // 3.2: Add functionality to the add button to add new books to the array and display it
 
