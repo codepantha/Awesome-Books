@@ -10,25 +10,24 @@ const addBookBtn = document.querySelector("#addBtn");
 
 // STEP 3: Create a function that adds new books to the array in step 2
 
+
 addBookBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   addBooks();
-  displayBooks();
 });
+
+const getExistingBooks = () => {
+  return JSON.parse(localStorage.getItem("books"));
+}
 
 const addBooks = () => {
   let title = titleInput.value;
   let author = authorInput.value;
 
-  const newBook = {
-    title,
-    author,
-  };
+  const newBook = { title, author };
 
-  let existingBooks = JSON.parse(localStorage.getItem("books"));
-
-  if (existingBooks) {
-    existingBooks.forEach((existingBook) => {
+  if (getExistingBooks()) {
+    getExistingBooks().forEach((existingBook) => {
       books.push(existingBook);
     });
   }
@@ -42,17 +41,21 @@ const addBooks = () => {
 };
 
 const displayBooks = () => {
-  JSON.parse(localStorage.getItem("books")).forEach((book) => {
-    const textHtml = `
-    <div class="book">
-    <p class="title">${book.title}</p>
-    <p class="author">${book.author}</p>
-    <button id="remove-btn">Remove</button>
-    <hr class="bottom-border" />
-  </div>`;
-    booksElement.insertAdjacentHTML("afterbegin", textHtml);
-  });
+
+  if (getExistingBooks()) {
+    getExistingBooks().forEach((book) => {
+      booksElement.innerHTML += `
+      <div class="book">
+      <p class="title">${book.title}</p>
+      <p class="author">${book.author}</p>
+      <button id="remove-btn">Remove</button>
+      <hr class="bottom-border" />
+      </div>`;
+    });
+  }
 };
+
+displayBooks();
 
 // 3.1: Store individual books in localstorage
 // 3.2: Add functionality to the add button to add new books to the array and display it
