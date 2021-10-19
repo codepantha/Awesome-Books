@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
 
 // const booksElement = document.querySelector('.books');
 const titleInput = document.querySelector('.title-input');
@@ -6,7 +7,7 @@ const authorInput = document.querySelector('.author-input');
 const addBookBtn = document.querySelector('#addBtn');
 
 class Book {
-  constructor (title = null, author = null) {
+  constructor(title = null, author = null) {
     this.title = title;
     this.author = author;
     this.books = [];
@@ -17,16 +18,20 @@ class Book {
     return Math.random().toString(20).substr(2, 20);
   }
 
-  getExistingBooks () {
+  getExistingBooks() {
     return JSON.parse(localStorage.getItem('books'));
   }
 
-  saveToLocalStorage (books) {
+  saveToLocalStorage(books) {
     localStorage.setItem('books', JSON.stringify(books));
-  };
+  }
 
-  addBooks () {
-    const newBook = { title: this.title, author: this.author, id: this.generateRandomId() };
+  addBooks() {
+    const newBook = {
+      title: this.title,
+      author: this.author,
+      id: this.generateRandomId(),
+    };
 
     if (this.getExistingBooks()) {
       this.getExistingBooks().forEach((existingBook) => {
@@ -41,12 +46,15 @@ class Book {
   }
 
   removeBook(bookId) {
-    const filterBooks = this.getExistingBooks().filter((existingBook) => existingBook.id !== bookId);
+    const filterBooks = this.getExistingBooks().filter(
+      (existingBook) => existingBook.id !== bookId,
+    );
+
     this.saveToLocalStorage(filterBooks);
     window.location.reload();
   }
 
-  displayBooks () {
+  displayBooks() {
     if (this.getExistingBooks()) {
       this.getExistingBooks().forEach((book) => {
         const textHtml = `
@@ -56,11 +64,11 @@ class Book {
         <button class="remove-btn" data-id=${book.id}>Remove</button>
         <hr class="bottom-border" />
         </div>`;
-  
+
         this.booksElement.insertAdjacentHTML('afterbegin', textHtml);
       });
     }
-  };
+  }
 }
 
 const book = new Book();
