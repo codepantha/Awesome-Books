@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable class-methods-use-this */
-
-// const booksElement = document.querySelector('.books');
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 const addBookBtn = document.querySelector('#addBtn');
@@ -14,15 +10,11 @@ class Book {
     this.booksElement = document.querySelector('.books');
   }
 
-  generateRandomId() {
-    return Math.random().toString(20).substr(2, 20);
-  }
+  generateRandomId = () => Math.random().toString(20).substr(2, 20);
 
-  getExistingBooks() {
-    return JSON.parse(localStorage.getItem('books'));
-  }
+  getExistingBooks = () => JSON.parse(localStorage.getItem('books'));
 
-  saveToLocalStorage(books) {
+  saveToLocalStorage = (books) => {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
@@ -76,10 +68,15 @@ const book = new Book();
 book.displayBooks();
 
 addBookBtn.addEventListener('click', (e) => {
-  const book = new Book(titleInput.value, authorInput.value);
-  book.addBooks();
-  titleInput.value = '';
-  authorInput.value = '';
+  if (titleInput.value !== '' && authorInput.value !== '') {
+    const book = new Book(titleInput.value, authorInput.value);
+    book.addBooks();
+    titleInput.value = '';
+    authorInput.value = '';
+  } else {
+    e.preventDefault();
+    alert('You need to provide valid input for book title and author.');
+  }
 });
 
 // traverse through the remove buttons and add onclick event listeners
