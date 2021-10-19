@@ -13,12 +13,18 @@ const saveToLocalStorage = (books) => {
 
 const getExistingBooks = () => JSON.parse(localStorage.getItem('books'));
 
+function generateRandomId() {
+  return Math.random().toString(20).substr(2, 20);
+}
+
 const addBooks = () => {
   const title = titleInput.value;
   const author = authorInput.value;
+  const id = generateRandomId();
 
-  const newBook = { title, author };
+  const newBook = { title, author, id };
 
+  // get existing books from localStorage
   if (getExistingBooks()) {
     getExistingBooks().forEach((existingBook) => {
       books.push(existingBook);
@@ -40,12 +46,12 @@ addBookBtn.addEventListener('click', () => {
 
 const displayBooks = () => {
   if (getExistingBooks()) {
-    getExistingBooks().forEach((book, index) => {
+    getExistingBooks().forEach((book) => {
       const textHtml = `
       <div class="book">
       <p class="title">${book.title}</p>
       <p class="author">${book.author}</p>
-      <button id="remove-btn" onclick="removeBook(${index})">Remove</button>
+      <button class="remove-btn" data-id=${book.id}>Remove</button>
       <hr class="bottom-border" />
       </div>`;
 
@@ -56,10 +62,17 @@ const displayBooks = () => {
 
 displayBooks();
 
-function removeBook(index) {
-  const filterBooks = getExistingBooks().filter(
-    (existingBook, i) => index !== i,
-  );
+function removeBook(bookId) {
+  const filterBooks = getExistingBooks().filter(existingBook => {
+    return existingBook.id !== bookId
+  });
   saveToLocalStorage(filterBooks);
   window.location.reload();
 }
+
+// traverse through the remove buttons and add onclick event listeners
+Array.from(document.querySelectorAll(".remove-btn")).forEach(btn => {
+  btn.addEventListener('click', function() {
+    removeBook(btn.dataset.id);
+  })
+})
