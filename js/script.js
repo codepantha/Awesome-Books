@@ -63,14 +63,12 @@ const displayBooks = () => {
 displayBooks();
 
 function removeBook(bookId) {
-  const filterBooks = getExistingBooks().filter(existingBook => existingBook.id !== bookId);
+  const filterBooks = getExistingBooks().filter((existingBook) => existingBook.id !== bookId);
   saveToLocalStorage(filterBooks);
   window.location.reload();
 }
 
 // traverse through the remove buttons and add onclick event listeners
-Array.from(document.querySelectorAll('.remove-btn')).forEach(btn =>
-  btn.addEventListener('click', () => {
-    removeBook(btn.dataset.id);
-  })
-);
+Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) => btn.addEventListener('click', () => {
+  removeBook(btn.dataset.id);
+}));
