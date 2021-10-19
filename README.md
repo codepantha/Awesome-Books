@@ -2,58 +2,48 @@
 
 # Project Name
 
-> One paragraph statement about the project.
+A basic website that allows users to add/remove books from a list.
 
-![screenshot](./app_screenshot.png)
+![Awesome Books](demo.PNG)
 
-Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- JAVASCRIPT
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://code-panther.github.io/Awesome-Books/)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+There are no prerequisites
 
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+Just clone the repository to your local machine and you are all set.
+`git clone https://github.com/Code-panther/Portfolio.git`
 
 ## Authors
 
-👤 **Author1**
+👤 **Codepanther**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Code-panther](https://github.com/Code-panther)
+- Twitter: [@codepantherr](https://twitter.com/codepantherr)
+- LinkedIn: [promise-eze](https://linkedin.com/in/promise-eze)
 
-👤 **Author2**
+👤 **Nicupop**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@nicupop729](https://github.com/nicupop729)
+- Twitter: [@nicupop729](https://twitter.com/nicupop729)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nicolae-pop/)
+
 
 ## 🤝 Contributing
 
@@ -65,11 +55,6 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
