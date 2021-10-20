@@ -48,13 +48,12 @@ class Book {
 
   displayBooks() {
     if (this.getExistingBooks()) {
-      this.getExistingBooks().forEach((book) => {
+      this.getExistingBooks().forEach((book, i) => {
         const textHtml = `
-        <div class="book">
-        <p class="title">${book.title}</p>
+        <div class="book ${i % 2 == 0 ? 'ash' : ''}">
+        <p class="title">"${book.title}"</p><span> by </span>
         <p class="author">${book.author}</p>
         <button class="remove-btn" data-id=${book.id}>Remove</button>
-        <hr class="bottom-border" />
         </div>`;
 
         this.booksElement.insertAdjacentHTML('afterbegin', textHtml);

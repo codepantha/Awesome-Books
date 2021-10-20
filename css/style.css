@@ -1,3 +1,46 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.books {
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid silver;
+  margin-bottom: 20px;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 14px;
+}
+
+.remove-btn {
+  margin-left: auto;
+  padding: 10px;
+  border: 1px solid #ececec;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.remove-btn:hover {
+  background: #fff;
+  color: red;
+}
+
+.ash {
+  background: silver;
 }
