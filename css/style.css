@@ -5,8 +5,8 @@
 }
 
 .wrapper {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
 .header {
@@ -23,6 +23,7 @@
 .book {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 5px;
   padding: 14px;
 }
@@ -34,13 +35,59 @@
   background: red;
   color: #fff;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .remove-btn:hover {
   background: #fff;
   color: red;
+  border: 1px solid #807c7c;
 }
 
 .ash {
   background: silver;
+}
+
+.divider {
+  width: 300px;
+
+  /* height:  */
+  border-top: 4px solid black;
+  border-radius: 10px;
+  margin: 30px auto 40px auto;
+}
+
+.form {
+  width: 40%;
+  margin: 0 auto;
+  padding: 2%;
+}
+
+.h2 {
+  margin: 0 auto 20px auto;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#addBtn {
+  width: 25%;
+  padding: 10px;
+  margin-left: 74%;
+  color: #fff;
+  background-color: rgb(54, 138, 54);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #807c7c;
+}
+
+#addBtn:hover {
+  color: rgb(54, 138, 54);
+  background-color: #fff;
+  border: 1px solid #807c7c;
 }

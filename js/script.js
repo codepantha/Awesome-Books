@@ -16,7 +16,7 @@ class Book {
 
   saveToLocalStorage = (books) => {
     localStorage.setItem('books', JSON.stringify(books));
-  }
+  };
 
   addBooks() {
     const newBook = {
@@ -50,7 +50,7 @@ class Book {
     if (this.getExistingBooks()) {
       this.getExistingBooks().forEach((book, i) => {
         const textHtml = `
-        <div class="book ${i % 2 == 0 ? 'ash' : ''}">
+        <div class="book ${i % 2 === 0 ? 'ash' : ''}">
         <p class="title">"${book.title}"</p><span> by </span>
         <p class="author">${book.author}</p>
         <button class="remove-btn" data-id=${book.id}>Remove</button>
