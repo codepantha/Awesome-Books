@@ -13,16 +13,24 @@
         <nav class="main-nav">
           <p class="logo">Awesome Books</p>
           <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" id="triggerBookDisplay" href="#">List</a></li>
-            <li class="nav-item"><a class="nav-link" id="triggerBookForm" href="#">Add new</a></li>
-            <li class="nav-item"><a class="nav-link" id="triggerContact" href="#">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" id="triggerBookDisplay" href="#">List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="triggerBookForm" href="#">Add new</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="triggerContact" href="#">Contact</a>
+            </li>
           </ul>
         </nav>
       </header>
       <main class="main">
-        <section class="books">
+        <span class="time-now"></span>
+        <section class="books-container">
           <h1 class="h1 home">Awesome books</h1>
           <hr class="divider" />
+          <div class="books"></div>
           <!-- Books are loaded dynamically with JavaScript -->
         </section>
         <section class="form">
@@ -45,15 +53,25 @@
           <h1 class="h1 section-title">Contact Information</h1>
 
           <p class="contact-text">
-            Do you have any questions, or you just want to say hello? <br>
+            Do you have any questions, or you just want to say hello? <br />
             You can reach out to us!
           </p>
           <ul class="contact-list">
             <li class="contact-item">
-              <span>Our email: <a href="mailto:hello@awesome-books.com" class="contact-link">hello@awesome-books.com</a></span>
+              <span
+                >Our email:
+                <a href="mailto:hello@awesome-books.com" class="contact-link"
+                  >hello@awesome-books.com</a
+                ></span
+              >
             </li>
             <li class="contact-item">
-              <span>Our phone: <a href="tel:+234993993993" class="contact-link">+234993993993</a></span>
+              <span
+                >Our phone:
+                <a href="tel:+234993993993" class="contact-link"
+                  >+234993993993</a
+                ></span
+              >
             </li>
             <li class="contact-item">
               <span>Our address: 39, Allen Avenue, NY, USA</span>

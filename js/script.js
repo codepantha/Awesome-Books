@@ -2,13 +2,14 @@ const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 const addBookBtn = document.querySelector('#addBtn');
 const showFormNavButton = document.querySelector('#triggerBookForm');
-const showBookNavButton = document.querySelector("#triggerBookDisplay")
+const showBookNavButton = document.querySelector('#triggerBookDisplay');
 const showContactNavButton = document.querySelector('#triggerContact');
 const bookForm = document.querySelector('.form');
 const booksContainer = document.querySelector('.books');
 const contact = document.querySelector('.contact');
 const homepageTitle = document.querySelector('.h1.home');
 const divider = document.querySelector('.divider');
+const timeNow = document.querySelector('.time-now');
 
 class Book {
   constructor(title = null, author = null) {
@@ -97,7 +98,7 @@ showFormNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'none';
   divider.style.display = 'none';
   contact.style.display = 'none';
-})
+});
 
 showBookNavButton.addEventListener('click', () => {
   window.location.reload();
@@ -106,7 +107,7 @@ showBookNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'block';
   divider.style.display = 'block';
   contact.style.display = 'none';
-})
+});
 
 showContactNavButton.addEventListener('click', () => {
   contact.style.display = 'flex';
@@ -114,9 +115,14 @@ showContactNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'none';
   divider.style.display = 'none';
   bookForm.style.display = 'none';
-})
+});
 
-const DateTime = luxon.DateTime;
+/* eslint-disable no-undef */
+const { DateTime } = luxon;
 const now = DateTime.now();
 
-console.log(`${now.toLocaleString(DateTime.DATETIME_MED)}`)
+timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`;
+
+setInterval(() => {
+  window.location.reload();
+}, 60000);
