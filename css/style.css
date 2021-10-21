@@ -59,11 +59,16 @@
   font-size: 40px;
 }
 
+.main {
+  min-height: 330px;
+}
+
 .books {
   max-width: 700px;
   margin: 0 auto;
   border: 1px solid silver;
   margin-bottom: 20px;
+  transition: transform 1s ease-out, opacity 0.2s ease-out;
 }
 
 .book {
@@ -107,6 +112,7 @@
   width: 80%;
   margin: 0 auto;
   padding: 2%;
+  display: none;
 }
 
 .h2 {
@@ -138,12 +144,35 @@ input[type="text"] {
   border: 1px solid #807c7c;
 }
 
+.contact {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .h1 {
+  margin-bottom: 30px;
+}
+
+.contact .contact-text {
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.contact .contact-item {
+  margin-bottom: 4px;
+}
+
 .footer {
-  margin: 160px auto 10px auto;
+  margin: 160px auto 0 auto;
   border: 2px solid black;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   align-items: center;
   padding: 15px 0 15px 10px;
+  /*   position: fixed; */
+  width: 100%;
+  bottom: 0;
 }

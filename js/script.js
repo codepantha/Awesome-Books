@@ -1,6 +1,14 @@
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 const addBookBtn = document.querySelector('#addBtn');
+const showFormNavButton = document.querySelector('#triggerBookForm');
+const showBookNavButton = document.querySelector("#triggerBookDisplay")
+const showContactNavButton = document.querySelector('#triggerContact');
+const bookForm = document.querySelector('.form');
+const booksContainer = document.querySelector('.books');
+const contact = document.querySelector('.contact');
+const homepageTitle = document.querySelector('.h1.home');
+const divider = document.querySelector('.divider');
 
 class Book {
   constructor(title = null, author = null) {
@@ -82,3 +90,33 @@ addBookBtn.addEventListener('click', (e) => {
 Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) => btn.addEventListener('click', () => {
   book.removeBook(btn.dataset.id);
 }));
+
+showFormNavButton.addEventListener('click', () => {
+  bookForm.style.display = 'block';
+  booksContainer.style.display = 'none';
+  homepageTitle.style.display = 'none';
+  divider.style.display = 'none';
+  contact.style.display = 'none';
+})
+
+showBookNavButton.addEventListener('click', () => {
+  window.location.reload();
+  bookForm.style.display = 'none';
+  booksContainer.style.display = 'block';
+  homepageTitle.style.display = 'block';
+  divider.style.display = 'block';
+  contact.style.display = 'none';
+})
+
+showContactNavButton.addEventListener('click', () => {
+  contact.style.display = 'flex';
+  booksContainer.style.display = 'none';
+  homepageTitle.style.display = 'none';
+  divider.style.display = 'none';
+  bookForm.style.display = 'none';
+})
+
+const DateTime = luxon.DateTime;
+const now = DateTime.now();
+
+console.log(`${now.toLocaleString(DateTime.DATETIME_MED)}`)
