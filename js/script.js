@@ -98,6 +98,9 @@ showFormNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'none';
   divider.style.display = 'none';
   contact.style.display = 'none';
+  showFormNavButton.classList.add('active');
+  showBookNavButton.classList.remove('active');
+  showContactNavButton.classList.remove('active');
 });
 
 showBookNavButton.addEventListener('click', () => {
@@ -107,6 +110,9 @@ showBookNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'block';
   divider.style.display = 'block';
   contact.style.display = 'none';
+  showFormNavButton.classList.remove('active');
+  showContactNavButton.classList.remove('active');
+  showBookNavButton.classList.add('active');
 });
 
 showContactNavButton.addEventListener('click', () => {
@@ -115,6 +121,9 @@ showContactNavButton.addEventListener('click', () => {
   homepageTitle.style.display = 'none';
   divider.style.display = 'none';
   bookForm.style.display = 'none';
+  showContactNavButton.classList.add('active');
+  showFormNavButton.classList.remove('active');
+  showBookNavButton.classList.remove('active');
 });
 
 /* eslint-disable no-undef */

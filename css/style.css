@@ -51,6 +51,10 @@
   color: #000;
 }
 
+.active {
+  border-bottom: 1px solid red;
+}
+
 .header {
   margin-bottom: 20px;
   height: 10vh;
