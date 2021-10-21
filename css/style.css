@@ -6,11 +6,74 @@
 
 .wrapper {
   text-align: center;
-  padding: 20px;
+  padding: 0 20px 10px 20px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px 0 10px 10px;
+  margin-bottom: 50px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-item {
+  padding: 5px 15px;
+  border-right: 2px solid black;
+  white-space: nowrap;
+}
+
+.nav-item:last-child {
+  border-right: none;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  text-decoration: none;
+  color: #4e4e4e;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #000;
+}
+
+.active {
+  border-bottom: 1px solid red;
 }
 
 .header {
   margin-bottom: 20px;
+  height: 10vh;
+}
+
+.h1 {
+  font-size: 40px;
+}
+
+.main {
+  min-height: 330px;
+  height: 75vh;
+  position: relative;
+}
+
+.time-now {
+  position: absolute;
+  top: -3vh;
+  right: 5%;
 }
 
 .books {
@@ -18,6 +81,7 @@
   margin: 0 auto;
   border: 1px solid silver;
   margin-bottom: 20px;
+  transition: transform 1s ease-out, opacity 0.2s ease-out;
 }
 
 .book {
@@ -58,16 +122,17 @@
 }
 
 .form {
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
   padding: 2%;
+  display: none;
 }
 
 .h2 {
   margin: 0 auto 20px auto;
 }
 
-input[type="text"] {
+input[type='text'] {
   width: 100%;
   padding: 10px;
   border: none;
@@ -90,4 +155,37 @@ input[type="text"] {
   color: rgb(54, 138, 54);
   background-color: #fff;
   border: 1px solid #807c7c;
+}
+
+.contact {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .h1 {
+  margin-bottom: 30px;
+}
+
+.contact .contact-text {
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.contact .contact-item {
+  margin-bottom: 4px;
+}
+
+.footer {
+  margin: 0 auto 0 auto;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0 15px 10px;
+  width: 100%;
+  bottom: 0;
+  height: 10vh;
 }
