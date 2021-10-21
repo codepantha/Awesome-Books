@@ -48,7 +48,7 @@ class Book {
 
   removeBook(bookId) {
     const filterBooks = this.getExistingBooks().filter(
-      (existingBook) => existingBook.id !== bookId,
+      (existingBook) => existingBook.id !== bookId
     );
 
     this.saveToLocalStorage(filterBooks);
@@ -87,10 +87,12 @@ addBookBtn.addEventListener('click', (e) => {
   }
 });
 
-// traverse through the remove buttons and add onclick event listeners to each
-Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) => btn.addEventListener('click', () => {
-  book.removeBook(btn.dataset.id);
-}));
+// traverse through the remove buttons and add onclick event listeners
+Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) =>
+  btn.addEventListener('click', () => {
+    book.removeBook(btn.dataset.id);
+  })
+);
 
 showFormNavButton.addEventListener('click', () => {
   bookForm.style.display = 'block';
