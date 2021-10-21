@@ -87,7 +87,7 @@ addBookBtn.addEventListener('click', (e) => {
   }
 });
 
-// traverse through the remove buttons and add onclick event listeners to each
+// traverse through the remove buttons and add onclick event listeners to each 
 Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) => btn.addEventListener('click', () => {
   book.removeBook(btn.dataset.id);
 }));
