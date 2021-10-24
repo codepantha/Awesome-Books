@@ -23,8 +23,8 @@ class Book {
 
   getExistingBooks = () => JSON.parse(localStorage.getItem('books'));
 
-  saveToLocalStorage = (books) => {
-    localStorage.setItem('books', JSON.stringify(books));
+  saveToLocalStorage = () => {
+    localStorage.setItem('books', JSON.stringify(this.books));
   };
 
   addBooks() {
@@ -42,17 +42,17 @@ class Book {
 
     this.books.push(newBook);
 
-    this.saveToLocalStorage(this.books);
-    this.books = [];
+    this.saveToLocalStorage();
+    // this.books = [];
   }
 
   removeBook(bookId) {
-    const filterBooks = this.getExistingBooks().filter(
+    this.books = this.getExistingBooks().filter(
       (existingBook) => existingBook.id !== bookId,
     );
 
-    this.saveToLocalStorage(filterBooks);
-    window.location.reload();
+    this.saveToLocalStorage();
+    // window.location.reload();
   }
 
   displayBooks() {
@@ -81,10 +81,11 @@ addBookBtn.addEventListener('click', (e) => {
     book.addBooks();
     titleInput.value = '';
     authorInput.value = '';
-  } else {
-    e.preventDefault();
-    alert('You need to provide valid input for book title and author.');
-  }
+  } 
+  // else {
+  //   e.preventDefault();
+  //   alert('You need to provide valid input for book title and author.');
+  // }
 });
 
 // traverse through the remove buttons and add onclick event listeners
@@ -130,8 +131,10 @@ showContactNavButton.addEventListener('click', () => {
 const { DateTime } = luxon;
 const now = DateTime.now();
 
-timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`;
+// timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`;
 
-setInterval(() => {
-  window.location.reload();
-}, 60000);
+// setInterval(() => {
+//   window.location.reload();
+// }, 60000);
+
+setInterval(() => { timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`}, 1000);
