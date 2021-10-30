@@ -43,7 +43,6 @@ class Book {
     this.books.push(newBook);
 
     this.saveToLocalStorage();
-    // this.books = [];
   }
 
   removeBook(bookId) {
@@ -54,7 +53,6 @@ class Book {
     this.saveToLocalStorage();
     this.booksElement.innerHTML = '';
     this.displayBooks();
-    // window.location.reload();
   }
 
   displayBooks() {
@@ -117,7 +115,7 @@ showFormNavButton.addEventListener('click', () => {
 });
 
 showBookNavButton.addEventListener('click', () => {
-  book.booksElement.innerHTML = ''; // refactor this later to remove booksElement as book attribute and have it outside instead
+  book.booksElement.innerHTML = '';
   book.displayBooks();
   bookForm.style.display = 'none';
   booksContainer.style.display = 'block';
