@@ -52,7 +52,7 @@ class Book {
     );
 
     this.saveToLocalStorage();
-    this.booksElement.innerHTML = "";
+    this.booksElement.innerHTML = '';
     this.displayBooks();
     // window.location.reload();
   }
@@ -62,12 +62,13 @@ class Book {
       this.getExistingBooks().forEach((book, i) => {
         const bookContainer = document.createElement('div');
         bookContainer.classList = 'book';
-        bookContainer.classList.add(i % 2 === 0 ? 'ash': null);
-        
+        bookContainer.classList.add(i % 2 === 0 ? 'ash' : null);
+
         const bookTitle = document.createElement('p');
         bookTitle.classList = 'title';
         bookTitle.innerHTML = book.title;
-        const span = document.createElement('span').innerText = ' by';
+        const span = document.createElement('span');
+        span.innerText = ' by';
         bookTitle.append(span);
 
         const bookAuthor = document.createElement('p');
@@ -80,7 +81,7 @@ class Book {
 
         removeBtn.addEventListener('click', () => {
           this.removeBook(book.id);
-        })
+        });
 
         bookContainer.appendChild(bookTitle);
         bookContainer.appendChild(bookAuthor);
@@ -102,7 +103,7 @@ addBookBtn.addEventListener('click', () => {
     titleInput.value = '';
     authorInput.value = '';
   }
-})
+});
 
 showFormNavButton.addEventListener('click', () => {
   bookForm.style.display = 'block';
@@ -116,7 +117,7 @@ showFormNavButton.addEventListener('click', () => {
 });
 
 showBookNavButton.addEventListener('click', () => {
-  book.booksElement.innerHTML = ""; // refactor this later to remove booksElement as book attribute and have it outside instead
+  book.booksElement.innerHTML = ''; // refactor this later to remove booksElement as book attribute and have it outside instead
   book.displayBooks();
   bookForm.style.display = 'none';
   booksContainer.style.display = 'block';
@@ -142,4 +143,4 @@ showContactNavButton.addEventListener('click', () => {
 /* eslint-disable no-undef */
 const { DateTime } = luxon;
 
-setInterval(() => { timeNow.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`}, 1000);
+setInterval(() => { timeNow.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`; }, 1000);
