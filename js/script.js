@@ -52,20 +52,40 @@ class Book {
     );
 
     this.saveToLocalStorage();
+    this.booksElement.innerHTML = "";
+    this.displayBooks();
     // window.location.reload();
   }
 
   displayBooks() {
     if (this.getExistingBooks()) {
       this.getExistingBooks().forEach((book, i) => {
-        const textHtml = `
-        <div class="book ${i % 2 === 0 ? 'ash' : ''}">
-        <p class="title">"${book.title}"</p><span> by </span>
-        <p class="author">${book.author}</p>
-        <button class="remove-btn" data-id=${book.id}>Remove</button>
-        </div>`;
+        const bookContainer = document.createElement('div');
+        bookContainer.classList = 'book';
+        bookContainer.classList.add(i % 2 === 0 ? 'ash': null);
+        
+        const bookTitle = document.createElement('p');
+        bookTitle.classList = 'title';
+        bookTitle.innerHTML = book.title;
+        const span = document.createElement('span').innerText = ' by';
+        bookTitle.append(span);
 
-        this.booksElement.insertAdjacentHTML('afterbegin', textHtml);
+        const bookAuthor = document.createElement('p');
+        bookAuthor.classList = 'author';
+        bookAuthor.innerHTML = book.author;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.classList = 'remove-btn';
+        removeBtn.innerHTML = 'Remove';
+
+        removeBtn.addEventListener('click', () => {
+          this.removeBook(book.id);
+        })
+
+        bookContainer.appendChild(bookTitle);
+        bookContainer.appendChild(bookAuthor);
+        bookContainer.appendChild(removeBtn);
+        this.booksElement.insertAdjacentElement('afterbegin', bookContainer);
       });
     }
   }
@@ -75,23 +95,14 @@ const book = new Book();
 
 book.displayBooks();
 
-addBookBtn.addEventListener('click', (e) => {
+addBookBtn.addEventListener('click', () => {
   if (titleInput.value !== '' && authorInput.value !== '') {
     const book = new Book(titleInput.value, authorInput.value);
     book.addBooks();
     titleInput.value = '';
     authorInput.value = '';
-  } 
-  // else {
-  //   e.preventDefault();
-  //   alert('You need to provide valid input for book title and author.');
-  // }
-});
-
-// traverse through the remove buttons and add onclick event listeners
-Array.from(document.querySelectorAll('.remove-btn')).forEach((btn) => btn.addEventListener('click', () => {
-  book.removeBook(btn.dataset.id);
-}));
+  }
+})
 
 showFormNavButton.addEventListener('click', () => {
   bookForm.style.display = 'block';
@@ -105,7 +116,8 @@ showFormNavButton.addEventListener('click', () => {
 });
 
 showBookNavButton.addEventListener('click', () => {
-  window.location.reload();
+  book.booksElement.innerHTML = ""; // refactor this later to remove booksElement as book attribute and have it outside instead
+  book.displayBooks();
   bookForm.style.display = 'none';
   booksContainer.style.display = 'block';
   homepageTitle.style.display = 'block';
@@ -129,12 +141,5 @@ showContactNavButton.addEventListener('click', () => {
 
 /* eslint-disable no-undef */
 const { DateTime } = luxon;
-const now = DateTime.now();
 
-// timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`;
-
-// setInterval(() => {
-//   window.location.reload();
-// }, 60000);
-
-setInterval(() => { timeNow.innerHTML = `${now.toLocaleString(DateTime.DATETIME_MED)}`}, 1000);
+setInterval(() => { timeNow.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`}, 1000);
