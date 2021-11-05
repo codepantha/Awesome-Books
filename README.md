@@ -15,7 +15,7 @@ A basic website that allows users to add/remove books from a list.
 
 ## Live Demo
 
-[Live Demo Link](https://code-panther.github.io/Awesome-Books/)
+[Live Demo Link](https://codepantherr.github.io/Awesome-Books/)
 
 
 ## Getting Started
