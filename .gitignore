@@ -1,7 +1,3 @@
-test.md
 node_modules
-.hintrc
-.stylelintrc.json
 package-lock.json
-.eslintrc.json
 .prettierrc
